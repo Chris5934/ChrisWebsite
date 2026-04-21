@@ -1,0 +1,4 @@
+project: Chris Gandiya Website
+  type: website
+  output-dir: docs
+  
