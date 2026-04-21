@@ -1,4 +1,7 @@
-project: Chris Gandiya Website
+project:
   type: website
   output-dir: docs
+
+website:
+  title: "Chris Website"
   
