@@ -1,0 +1,30 @@
+---
+title: "Christine Gandiya"
+format:
+  html:
+    toc: false
+    theme: cosmo
+---
+
+## About
+
+I’m a psychology and math-computer science student interested in data analysis, research workflows, and making messy data easier to understand. I’ve worked with Python, R, statistics, and research data through coursework, lab work, and class projects.
+
+## Featured Project
+
+[Predicting Global Video Game Sales](analysis.qmd)
+
+For this project, I used a video game sales dataset to predict global sales from release year, review scores, genre, platform, and publisher group. The analysis includes data cleaning, exploratory plots, preprocessing pipelines, and a comparison between linear regression and random forest models.
+
+## Links
+
+- [Resume](resume.pdf)
+- [Cover Letter](cover-letter.pdf)
+- [GitHub](https://github.com/Chris5934)
+
+## Technical Skills
+
+- Python: pandas, NumPy, scikit-learn, matplotlib
+- R: data cleaning, visualization, regression, statistical analysis
+- Machine learning: train/test splits, cross-validation, regression models, random forests
+- Reporting and workflow: Quarto, Jupyter, GitHub, conda

@@ -1,0 +1,10 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - "resume.pdf"
+    - "cover-letter.pdf"
+
+website:
+  title: "Christine Gandiya"
+  
