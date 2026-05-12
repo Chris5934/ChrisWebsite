@@ -12,3 +12,5 @@ __pycache__/
 
 index.pdf
 analysis.pdf
+/.quarto/
+**/*.quarto_ipynb

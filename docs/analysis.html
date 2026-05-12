@@ -199,7 +199,7 @@ window.Quarto = {
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>This project uses the <strong>Video Game Sales with Ratings</strong> dataset from Kaggle, which combines video game release information, sales data, and review scores. Each row represents a video game. The goal of this analysis is to predict a game’s global sales using non-sales features such as release year, review scores, genre, platform, and publisher group.</p>
-<div id="727b0f19" class="cell" data-execution_count="1">
+<div id="3b596251" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -225,7 +225,7 @@ window.Quarto = {
 <section id="data-cleaning-and-feature-engineering" class="level2">
 <h2 class="anchored" data-anchor-id="data-cleaning-and-feature-engineering">Data Cleaning and Feature Engineering</h2>
 <p>The dataset includes several sales variables, release details, and review information. I intentionally excluded the regional sales variables because global sales are calculated from regional sales.</p>
-<div id="861e9394" class="cell" data-execution_count="2">
+<div id="18d074b1" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gamesales <span class="op">=</span> pd.read_csv(<span class="st">"gamesales.csv"</span>)</span>
@@ -253,7 +253,7 @@ window.Quarto = {
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>games <span class="op">=</span> games.dropna(subset<span class="op">=</span>[<span class="st">"Global_Sales"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="aa9e6db9" class="cell" data-execution_count="3">
+<div id="0b92f156" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>top_publishers <span class="op">=</span> games[<span class="st">"Publisher"</span>].value_counts().head(<span class="dv">10</span>).index</span>
@@ -276,7 +276,7 @@ Columns: 7</code></pre>
 </div>
 </div>
 <p>Blank values and <code>"tbd"</code> user scores were converted to missing values so they could be handled consistently. I also grouped publishers outside the top 10 into an <code>"Other"</code> category. This keeps the feature space smaller and makes the publisher variable easier to interpret.</p>
-<div id="785fca31" class="cell" data-execution_count="4">
+<div id="68c23402" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>summary_table <span class="op">=</span> pd.DataFrame({</span>
@@ -354,7 +354,7 @@ Columns: 7</code></pre>
 <section id="exploratory-data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h2>
 <p>I started by examining the response variable. Before choosing a model, it is important to understand whether or not global sales are roughly symmetric.</p>
-<div id="13aca8fa" class="cell" data-execution_count="5">
+<div id="cd09df63" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
@@ -373,7 +373,7 @@ Columns: 7</code></pre>
 </div>
 </div>
 <p>Global sales are heavily right-skewed. Most games sell relatively few copies, while a small number of blockbuster games sell far more than the rest of the dataset. Because of this, I created a log-transformed version of global sales for modeling.</p>
-<div id="3c19728b" class="cell" data-execution_count="6">
+<div id="a988b642" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>games[<span class="st">"Log_Global_Sales"</span>] <span class="op">=</span> np.log1p(games[<span class="st">"Global_Sales"</span>])</span>
@@ -394,7 +394,7 @@ Columns: 7</code></pre>
 </div>
 </div>
 <p>After the transformation, the response is less dominated by a few extreme games. I use this log-transformed version of global sales as the target for the regression models.</p>
-<div id="55695f95" class="cell" data-execution_count="7">
+<div id="8ea0a537" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
@@ -413,7 +413,7 @@ Columns: 7</code></pre>
 </div>
 </div>
 <p>Games with higher critic scores tend to have somewhat higher log sales, but the pattern is not perfect. There are many well-reviewed games with modest sales, which suggests that review quality helps but does not come close to explaining sales by itself.</p>
-<div id="0a84a911" class="cell" data-execution_count="8">
+<div id="def6dcb5" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
@@ -432,7 +432,7 @@ Columns: 7</code></pre>
 </div>
 </div>
 <p>User score appears even noisier than critic score. Some highly rated games sold very little, and some lower-rated games still sold relatively well. This makes user score worth including, but I would not expect it to be one of the strongest predictors on its own.</p>
-<div id="34694785" class="cell" data-execution_count="9">
+<div id="73ddc3b7" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>platform_sales <span class="op">=</span> games.groupby(<span class="st">"Platform"</span>)[<span class="st">"Log_Global_Sales"</span>].median().sort_values()</span>
@@ -453,7 +453,7 @@ Columns: 7</code></pre>
 </div>
 </div>
 <p>Median log sales differ noticeably across platforms, so platform likely contains useful predictive information.</p>
-<div id="f902e761" class="cell" data-execution_count="10">
+<div id="654517fa" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>publisher_sales <span class="op">=</span> games.groupby(<span class="st">"Publisher_Grouped"</span>)[<span class="st">"Log_Global_Sales"</span>].median().sort_values()</span>
@@ -474,7 +474,7 @@ Columns: 7</code></pre>
 </div>
 </div>
 <p>Median log sales also vary by publisher group. Larger publishers may benefit from stronger marketing, distribution, brand recognition, or established franchises. Since smaller publishers were grouped into <code>"Other"</code>, this feature is useful for prediction but should not be treated as a detailed comparison of every publisher.</p>
-<div id="b0558fee" class="cell" data-execution_count="11">
+<div id="31084ff2" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
@@ -494,7 +494,7 @@ Columns: 7</code></pre>
 </div>
 <p>Log global sales vary across release years, but the relationship is not strongly linear. Year may still be useful because it captures changes in the gaming market over time.</p>
 <p>After the transformation, the response is less dominated by a few extreme games. I use this log-transformed version of global sales as the target for the regression models.</p>
-<div id="4c6183a1" class="cell" data-execution_count="12">
+<div id="ea2ca339" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>genre_sales <span class="op">=</span> games.groupby(<span class="st">"Genre"</span>)[<span class="st">"Log_Global_Sales"</span>].median().sort_values()</span>
@@ -519,7 +519,7 @@ Columns: 7</code></pre>
 <section id="modeling-approach" class="level2">
 <h2 class="anchored" data-anchor-id="modeling-approach">Modeling Approach</h2>
 <p>I split the data into training and test sets before fitting any models. The training set is used for fitting and cross-validation, while the test set is saved for the final performance comparison. This gives a better estimate of how the models perform on predicting sales for games they have not already seen.</p>
-<div id="81ff992f" class="cell" data-execution_count="13">
+<div id="adc6d02c" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> games.drop(columns<span class="op">=</span>[<span class="st">"Global_Sales"</span>, <span class="st">"Log_Global_Sales"</span>])</span>
@@ -533,7 +533,7 @@ Columns: 7</code></pre>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="8a86068e" class="cell" data-execution_count="14">
+<div id="64fbd0db" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> [<span class="st">"Year_of_Release"</span>, <span class="st">"Critic_Score"</span>, <span class="st">"User_Score"</span>]</span>
@@ -558,7 +558,7 @@ Columns: 7</code></pre>
 <section id="baseline-model-linear-regression" class="level3">
 <h3 class="anchored" data-anchor-id="baseline-model-linear-regression">Baseline Model: Linear Regression</h3>
 <p>I first fit a linear regression model as a baseline. This gives a simple point of comparison before using a more flexible model.</p>
-<div id="8f7cf331" class="cell" data-execution_count="15">
+<div id="54623dcf" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>linreg_pipe <span class="op">=</span> Pipeline([</span>
@@ -578,7 +578,7 @@ Columns: 7</code></pre>
 <section id="random-forest-model" class="level3">
 <h3 class="anchored" data-anchor-id="random-forest-model">Random Forest Model</h3>
 <p>I then fit a random forest model. This model is useful here because sales may depend on interactions that a basic linear model does not capture. For example, a genre may perform differently across platforms, or review scores may matter more for some types of games than others.</p>
-<div id="79921393" class="cell" data-execution_count="16">
+<div id="ba52e6a3" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>rf_pipe <span class="op">=</span> Pipeline([</span>
@@ -602,7 +602,7 @@ Columns: 7</code></pre>
 <section id="model-tuning" class="level3">
 <h3 class="anchored" data-anchor-id="model-tuning">Model Tuning</h3>
 <p>To check whether the random forest could be improved, I used repeated cross-validation to tune <code>max_features</code>. This parameter controls how many predictors are considered at each split. Smaller values can make the trees more different from each other, while larger values allow each split to consider more information.</p>
-<div id="b56edb4f" class="cell" data-execution_count="17">
+<div id="a954f848" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>rf_tune_pipe <span class="op">=</span> Pipeline([</span>
@@ -651,7 +651,7 @@ Columns: 7</code></pre>
 Best CV RMSE: 0.30788118265283754</code></pre>
 </div>
 </div>
-<div id="bf5016c6" class="cell" data-execution_count="18">
+<div id="653abd5d" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>best_rf <span class="op">=</span> rf_grid.best_estimator_</span>
@@ -662,7 +662,7 @@ Best CV RMSE: 0.30788118265283754</code></pre>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>best_rf_r2 <span class="op">=</span> r2_score(y_test, best_rf_pred)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="f597ea69" class="cell" data-execution_count="19">
+<div id="282b64ec" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> pd.DataFrame({</span>
@@ -719,7 +719,7 @@ Best CV RMSE: 0.30788118265283754</code></pre>
 <section id="model-interpretation" class="level2">
 <h2 class="anchored" data-anchor-id="model-interpretation">Model Interpretation</h2>
 <p>To better understand the random forest, I examined the variables with the highest feature importance values.</p>
-<div id="d756323e" class="cell" data-execution_count="20">
+<div id="75fe74af" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>feature_names <span class="op">=</span> best_rf.named_steps[<span class="st">"prep"</span>].get_feature_names_out()</span>
@@ -839,7 +839,7 @@ Best CV RMSE: 0.30788118265283754</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/Chris5934\.github\.io\/ChrisWebsite\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

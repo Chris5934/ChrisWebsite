@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -134,28 +105,28 @@ window.Quarto = {
 
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
-<p>I’m a student building skills in data cleaning, exploratory analysis, and predictive modeling with reproducible workflows.</p>
+<p>I’m a psychology and math-computer science student interested in data analysis, research workflows, and making messy data easier to understand. I’ve worked with Python, R, statistics, and research data through coursework, lab work, and class projects.</p>
 </section>
 <section id="featured-project" class="level2">
-<h2 class="anchored" data-anchor-id="featured-project">Featured project</h2>
+<h2 class="anchored" data-anchor-id="featured-project">Featured Project</h2>
 <p><a href="./analysis.html">Predicting Global Video Game Sales</a></p>
-<p>End-to-end workflow on a video game sales dataset: data cleaning + feature engineering, exploratory analysis, and model comparison (linear regression vs.&nbsp;random forest) evaluated with RMSE and <span class="math inline">\(R^2\)</span>.</p>
+<p>For this project, I used a video game sales dataset to predict global sales from release year, review scores, genre, platform, and publisher group. The analysis includes data cleaning, exploratory plots, preprocessing pipelines, and a comparison between linear regression and random forest models.</p>
 </section>
 <section id="links" class="level2">
 <h2 class="anchored" data-anchor-id="links">Links</h2>
 <ul>
-<li><a href="resume.pdf">Resume (PDF)</a></li>
-<li><a href="cover-letter.pdf">Cover letter (PDF)</a></li>
-<li><a href="https://github.com/Chris5934/ChrisWebsite">GitHub</a></li>
+<li><a href="resume.pdf">Resume</a></li>
+<li><a href="cover-letter.pdf">Cover Letter</a></li>
+<li><a href="https://github.com/Chris5934">GitHub</a></li>
 </ul>
 </section>
 <section id="technical-skills" class="level2">
-<h2 class="anchored" data-anchor-id="technical-skills">Technical skills</h2>
+<h2 class="anchored" data-anchor-id="technical-skills">Technical Skills</h2>
 <ul>
-<li>Python (pandas, NumPy, scikit-learn, matplotlib)</li>
-<li>Data cleaning, missing-data handling, feature engineering</li>
-<li>Model evaluation (train/test split, cross-validation; RMSE, <span class="math inline">\(R^2\)</span>)</li>
-<li>Reproducible reporting (Quarto, Jupyter, conda)</li>
+<li>Python: pandas, NumPy, scikit-learn, matplotlib</li>
+<li>R: data cleaning, visualization, regression, statistical analysis</li>
+<li>Machine learning: train/test splits, cross-validation, regression models, random forests</li>
+<li>Reporting and workflow: Quarto, Jupyter, GitHub, conda</li>
 </ul>
 
 
@@ -235,7 +206,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/Chris5934\.github\.io\/ChrisWebsite\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

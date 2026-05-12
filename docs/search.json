@@ -4,35 +4,35 @@
     "href": "index.html",
     "title": "Christine Gandiya",
     "section": "",
-    "text": "I’m a student building skills in data cleaning, exploratory analysis, and predictive modeling with reproducible workflows."
+    "text": "I’m a psychology and math-computer science student interested in data analysis, research workflows, and making messy data easier to understand. I’ve worked with Python, R, statistics, and research data through coursework, lab work, and class projects."
   },
   {
     "objectID": "index.html#about",
     "href": "index.html#about",
     "title": "Christine Gandiya",
     "section": "",
-    "text": "I’m a student building skills in data cleaning, exploratory analysis, and predictive modeling with reproducible workflows."
+    "text": "I’m a psychology and math-computer science student interested in data analysis, research workflows, and making messy data easier to understand. I’ve worked with Python, R, statistics, and research data through coursework, lab work, and class projects."
   },
   {
     "objectID": "index.html#featured-project",
     "href": "index.html#featured-project",
     "title": "Christine Gandiya",
-    "section": "Featured project",
-    "text": "Featured project\nPredicting Global Video Game Sales\nEnd-to-end workflow on a video game sales dataset: data cleaning + feature engineering, exploratory analysis, and model comparison (linear regression vs. random forest) evaluated with RMSE and \\(R^2\\)."
+    "section": "Featured Project",
+    "text": "Featured Project\nPredicting Global Video Game Sales\nFor this project, I used a video game sales dataset to predict global sales from release year, review scores, genre, platform, and publisher group. The analysis includes data cleaning, exploratory plots, preprocessing pipelines, and a comparison between linear regression and random forest models."
   },
   {
     "objectID": "index.html#links",
     "href": "index.html#links",
     "title": "Christine Gandiya",
     "section": "Links",
-    "text": "Links\n\nResume (PDF)\nCover letter (PDF)\nGitHub"
+    "text": "Links\n\nResume\nCover Letter\nGitHub"
   },
   {
     "objectID": "index.html#technical-skills",
     "href": "index.html#technical-skills",
     "title": "Christine Gandiya",
-    "section": "Technical skills",
-    "text": "Technical skills\n\nPython (pandas, NumPy, scikit-learn, matplotlib)\nData cleaning, missing-data handling, feature engineering\nModel evaluation (train/test split, cross-validation; RMSE, \\(R^2\\))\nReproducible reporting (Quarto, Jupyter, conda)"
+    "section": "Technical Skills",
+    "text": "Technical Skills\n\nPython: pandas, NumPy, scikit-learn, matplotlib\nR: data cleaning, visualization, regression, statistical analysis\nMachine learning: train/test splits, cross-validation, regression models, random forests\nReporting and workflow: Quarto, Jupyter, GitHub, conda"
   },
   {
     "objectID": "analysis.html",
