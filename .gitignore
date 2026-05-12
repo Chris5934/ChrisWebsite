@@ -1,3 +1,14 @@
-/.quarto/
-**/*.quarto_ipynb
-/_site/
+.quarto/
+_freeze/
+_site/
+
+*.log
+*.pkl
+
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+
+index.pdf
+analysis.pdf
