@@ -178,8 +178,6 @@ plt.show()
 ```
 Log global sales vary across release years, but the relationship is not strongly linear. Year may still be useful because it captures changes in the gaming market over time.
 
-After the transformation, the response is less dominated by a few extreme games. I use this log-transformed version of global sales as the target for the regression models.
-
 ```{python}
 genre_sales = games.groupby("Genre")["Log_Global_Sales"].median().sort_values()
 
