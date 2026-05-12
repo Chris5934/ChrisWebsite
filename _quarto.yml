@@ -1,7 +1,10 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - "resume.pdf"
+    - "cover-letter.pdf"
 
 website:
-  title: "Chris Website"
+  title: "Christine Gandiya"
   

@@ -1,0 +1,30 @@
+---
+title: "Christine Gandiya"
+format:
+  html:
+    toc: false
+    theme: cosmo
+---
+
+## About
+
+I’m a student building skills in data cleaning, exploratory analysis, and predictive modeling with reproducible workflows.
+
+## Featured project
+
+[Predicting Global Video Game Sales](analysis.qmd)
+
+End-to-end workflow on a video game sales dataset: data cleaning + feature engineering, exploratory analysis, and model comparison (linear regression vs. random forest) evaluated with RMSE and $R^2$.
+
+## Links
+
+- [Resume (PDF)](resume.pdf)
+- [Cover letter (PDF)](cover-letter.pdf)
+- [GitHub](https://github.com/Chris5934/ChrisWebsite)
+
+## Technical skills
+
+- Python (pandas, NumPy, scikit-learn, matplotlib)
+- Data cleaning, missing-data handling, feature engineering
+- Model evaluation (train/test split, cross-validation; RMSE, $R^2$)
+- Reproducible reporting (Quarto, Jupyter, conda)

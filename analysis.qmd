@@ -1,6 +1,6 @@
 ---
 title: "Predicting Global Video Game Sales"
-author: "Chris Gandiya"
+author: "Christine Gandiya"
 format:
   html:
     toc: true
