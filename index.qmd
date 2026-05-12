@@ -1,5 +1,0 @@
----
-title: "Chris Website"
----
-
-Website for MAT4025
